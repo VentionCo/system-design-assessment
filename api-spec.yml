@@ -17,6 +17,8 @@ components:
           type: string
         thumbnail:
           type: string
+        url:
+          type: string
   parameters:
     videoId:
       name: videoId
