@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: '/video/:id',
+    path: '/video/:videoId',
     element: <Viewing />,
   },
 ]);

@@ -33,7 +33,7 @@ const navigate = useNavigate();
                                         alt={video.title}
                                     />
                                 </Link>
-                            <Text ml={100}>{video.title}</Text>
+                            <Text ml={80}>{video.title}</Text>
                             </div>
                         </Flex>
                     </Grid.Col>

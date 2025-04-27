@@ -1,10 +1,14 @@
 import { useFavouritesStore } from "@/hooks/useFavouritesStore"
 import { Center } from "@mantine/core"
 import { useParams } from "react-router-dom";
+import { Error } from "./Error";
 
 export const Favourite = () => {
     const { favourites, setFavourites } = useFavouritesStore();
     const { videoId } = useParams();
+    if (videoId === undefined) {
+        return <Error />
+    }
 
     return (
         <Center>
