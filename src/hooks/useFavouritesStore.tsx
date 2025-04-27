@@ -11,10 +11,8 @@ export const useFavouritesStore = create<FavouritesStore>(
         favourites: new Map(),
         setFavourites: (favourite: string): void => set((state) => {
             if (state.favourites.get(favourite) === false || state.favourites.get(favourite) === undefined) {
-                console.log("true");
                 state.favourites.set(favourite, true);
             } else {
-                console.log("false");
                 state.favourites.set(favourite, false);
             }
             return { ...state };

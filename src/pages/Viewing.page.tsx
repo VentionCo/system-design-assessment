@@ -1,9 +1,9 @@
-import { Welcome } from "@/components/Welcome/Welcome";
+import { Favourite } from "@/components/Favourite";
 
 export const Viewing = () => {
   return (
     <>
-      <Welcome />
+      <Favourite />
     </>
   );
 }

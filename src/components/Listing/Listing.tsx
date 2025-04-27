@@ -3,7 +3,7 @@ import { video } from "@/models/video.model"
 import { Grid, Paper, Image, Text, Skeleton, Container, Flex } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query";
 import { Error } from "../Error"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Listing = () => {
 const { data, isLoading, isError } = useQuery({queryKey: ['videos'], queryFn: getVideos});
@@ -25,15 +25,14 @@ const navigate = useNavigate();
                     <Grid.Col span={3} key={video.id}>
                         <Flex justify="center">
                             <div>
-                            <a href="">
-                                <Image
-                                    src={video.thumbnail}
-                                    h={200}
-                                    w={200}
-                                    alt={video.title}
-                                    onClick={() => navigate(`/video/${video.id}`)}
-                                />
-                            </a>
+                                <Link to={`/video/${video.id}`}>
+                                    <Image
+                                        src={video.thumbnail}
+                                        h={200}
+                                        w={200}
+                                        alt={video.title}
+                                    />
+                                </Link>
                             <Text ml={100}>{video.title}</Text>
                             </div>
                         </Flex>
