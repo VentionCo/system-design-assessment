@@ -3,11 +3,11 @@ import { video } from "@/models/video.model"
 import { Grid, Paper, Image, Text, Skeleton, Container, Flex } from "@mantine/core"
 import { useQuery } from "@tanstack/react-query";
 import { Error } from "../Error"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Listing = () => {
 const { data, isLoading, isError } = useQuery({queryKey: ['videos'], queryFn: getVideos});
-const navigate = useNavigate();
+
         if (isLoading) {
             return (
                 <Container>
