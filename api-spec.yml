@@ -1,0 +1,84 @@
+components:
+  schemas:
+    GeneralError:
+        type: object
+        properties:
+          code:
+            type: integer
+            format: int32
+          message:
+            type: string
+    video:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        thumbnail:
+          type: string
+  parameters:
+    videoId:
+      name: videoId
+      in: query
+      description: The uuid of the video
+      required: true
+      schema:
+        type: string
+  responses:
+    NotFound:
+      description: Entity not found.
+    GeneralError:
+      description: General Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/GeneralError'
+
+/videos:
+  get:
+    description: Returns all videos
+    responses:
+      '200':
+        description: A list of videos.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/video'
+/videos/:videoId:
+  get:
+    description: Returns a specific video
+    responses:
+      '200':
+        description: A list of videos.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/video'
+      '404':
+        description: Not Found
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/responses/NotFound'
+/uploadVideo:
+  post:
+    description: Uploads a video.
+    requestBody:
+      content:
+        application/octet-stream: {}
+    responses:
+      '201':
+        description: Video successfully uploaded.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/video'
+      '500':
+        description: Video unsuccessfully uploaded.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/responses/GeneralError'
