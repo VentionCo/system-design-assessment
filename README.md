@@ -1,3 +1,11 @@
+# Technologies used
+This application would use MongoDB. Mongo was selected due to its high scalability and ability to change schemas with more flexibility. This could be useful as the platform grows in size and changes over time. Mongo allows for more servers to be spun up as the size of the platform grows. There also isn't really any complex relationships, so Postgres's strengths are overshadowed by what Mongo offers.
+Express is a good fit here for the server as it is better suited to handle many concurrent requests. Having the entire stack written in javascript also reduces complexity for developers, even though the 5 of them could have different expertise. One developer could be working on the frontend, two for the backend and database, one for the infrastructure of setting everything up with amazon web services, and another can work on authentication and user management.
+Videos will be uploaded to an S3 bucket which will be served using a CDN for reduced latency like Amazon Cloudfront.
+Kubernetes would be used to easily increase the resources available if demand increases. A new pod instance would help decrease the load on the system, therefore keeping latency at an acceptable level.
+
+
+
 # Instructions
 The objective is to design a video-sharing and streaming platform, a YouTube "clone". 
 
